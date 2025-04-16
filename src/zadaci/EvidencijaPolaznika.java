@@ -55,9 +55,11 @@ Za rješavanje koristite klasu ArrayList
         System.out.println("Unesite email za pretrazivanje");
         String email= s.nextLine().trim();
         System.out.println("Lista polaznika s emailom : "+email);
+        System.out.println(email);
         for (Polaznik p : polaznici){
+            System.out.println("pruka"+p.getEmail());
             if(p.getEmail() == email){
-                System.out.println(p.toString());
+                System.out.println(p);
             }
         }
     }
