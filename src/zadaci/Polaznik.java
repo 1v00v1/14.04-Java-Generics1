@@ -1,6 +1,6 @@
 package zadaci;
 
-public class Polaznik {
+public class Polaznik implements Comparable<Polaznik> {
     private String ime;
     private  String prezime;
     private  String email;
@@ -30,4 +30,8 @@ public class Polaznik {
                 "\nEmail: " + email ;
     }
 
+    @Override
+    public int compareTo(Polaznik o) {
+        return this.prezime.compareTo(o.prezime);
+    }
 }

@@ -1,9 +1,6 @@
 package zadaci;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EvidencijaPolaznika {
 
@@ -66,8 +63,9 @@ Iskorisitit TreeSet() i sučelje Comparable
 
     private static void IspisPolaznika(HashSet<Polaznik> p) {
         System.out.println("Lista polaznika :");
-        for (Polaznik pol : p) {
-            System.out.println(pol.toString());
+TreeSet<Polaznik > polaznici = new TreeSet<>(p);
+        for (Polaznik pol  : polaznici) {
+            System.out.println(pol);
         }
     }
 
