@@ -83,7 +83,6 @@ TreeSet<Polaznik > polaznici = new TreeSet<>(p);
     public static Polaznik UnosPolaznika(Scanner s, HashSet<Polaznik> p) {
         boolean ex = false;
         String email;
-        Boolean validacija = false;
         System.out.print("Unesite Ime : ");
         String ime = s.nextLine();
         System.out.print("Unesite Prezime : ");
