@@ -1,6 +1,7 @@
 package zadaci;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,66 +24,100 @@ Napravi glavnu klasu EvidencijaPolaznika koja sadrži main metodu.
 Za rješavanje koristite klasu ArrayList
        *
        * */
-        List<Polaznik> p = new ArrayList<>();
+        /*
+        * Napiši program za evidenciju polaznika na tečaju koji također provjerava i sprječava dodavanje duplikata polaznika na tečaj. Program treba omogućiti unos polaznika i njihovih podataka te provjeriti jesu li polaznici jedinstveni na tečaju.
+
+Koristi klasu Polaznik s atributima: ime, prezime i e-mail
+Koristi klasu HashSet<Polaznik> za pohranu polaznika kako bi se osigurala jedinstvenost
+Napravi glavnu klasu EvidencijaPolaznika koja sadrži main metodu
+Omogući korisniku unos novih polaznika (ime, prezime, e-mail)
+Pri dodavanju novog polaznika, provjeri je li polaznik već prisutan na tečaju (usporedba po e-mail adresi)
+Ispisuj odgovarajuće poruke o uspješnom ili neuspješnom dodavanju polaznika na tečaj
+Omogući ispis svih polaznika na tečaju nakon unosa
+koristiti metode equals i HashCode
+
+
+
+Što bi trebalo izmijeniti u rješenju ako dodamo novi zahtjev?
+Svi polaznici moraju biti cijelo vrijeme sortirani po prezimenu uzlazno
+Iskorisitit TreeSet() i sučelje Comparable
+
+*/
+        HashSet<Polaznik> p = new HashSet<>();
 
         Scanner s = new Scanner(System.in);
-        Boolean exit =false;
+        Boolean exit = false;
 
         do {
             printMenu();
-            int izbor = Integer.parseInt( s.nextLine());
-            switch (izbor){
-                case 1 -> p.add( UnosPolaznika(s));
+            int izbor = Integer.parseInt(s.nextLine());
+            switch (izbor) {
+                case 1 -> p.add(UnosPolaznika(s, p));
                 case 2 -> IspisPolaznika(p);
-                case 3 -> PretrazivanjePoEmailu(s,p);
-                default -> exit=true;
+                case 3 -> PretrazivanjePoEmailu(s, p);
+                default -> exit = true;
 
             }
 
 
-        }while(exit ==false);
+        } while (exit == false);
 
     }
 
-    private static void IspisPolaznika(List<Polaznik> p) {
+    private static void IspisPolaznika(HashSet<Polaznik> p) {
         System.out.println("Lista polaznika :");
-        for (Polaznik pol :p){
+        for (Polaznik pol : p) {
             System.out.println(pol.toString());
         }
     }
 
-    private static void PretrazivanjePoEmailu(Scanner s, List<Polaznik> polaznici) {
+    private static void PretrazivanjePoEmailu(Scanner s, HashSet<Polaznik> polaznici) {
         System.out.println("Unesite email za pretrazivanje");
-        String email= s.nextLine().trim();
-        System.out.println("Lista polaznika s emailom : "+email);
+        String email = s.nextLine().trim();
+
         System.out.println(email);
-        for (Polaznik p : polaznici){
-            System.out.println("pruka"+p.getEmail());
-            if(p.getEmail().equals(email)){
+        for (Polaznik p : polaznici) {
+            if (p.getEmail().equals(email)) {
                 System.out.println(p);
             }
         }
     }
 
-    public static Polaznik UnosPolaznika(Scanner s){
+    public static Polaznik UnosPolaznika(Scanner s, HashSet<Polaznik> p) {
+        boolean ex = false;
+        String email;
+        Boolean validacija = false;
         System.out.print("Unesite Ime : ");
         String ime = s.nextLine();
         System.out.print("Unesite Prezime : ");
         String prezime = s.nextLine();
+
         System.out.print("Unesite Email : ");
-        String email = s.nextLine();
+        email = s.nextLine();
+        for (Polaznik pol : p) {
+            do {
+                if (pol.getEmail().equals(email)) {
+                    System.out.println("Email se koristi");
+                    System.out.print("Unesite Email : ");
+                    email = s.nextLine();
+                } else {
+                    ex = true;
+                }
 
 
+            } while (!ex);
+        }
+            return new Polaznik(ime, prezime, email);
 
-        return new Polaznik(ime,prezime,email);
+
     }
-    public static void printMenu(){
-        System.out.println("-".repeat(30));
-        System.out.println( "1: Unos \n"+
-                "2: Ispis polaznika\n"
-        +"3: Pretrazivanje po emailu\n"+
-                "4: izlaz");
-        System.out.println("-".repeat(30));
-        System.out.print("Unesite izbor: ");
+        public static void printMenu () {
+            System.out.println("-".repeat(30));
+            System.out.println("1: Unos \n" +
+                    "2: Ispis polaznika\n"
+                    + "3: Pretrazivanje po emailu\n" +
+                    "4: izlaz");
+            System.out.println("-".repeat(30));
+            System.out.print("Unesite izbor: ");
+        }
     }
-}
