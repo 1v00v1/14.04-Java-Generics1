@@ -34,7 +34,6 @@ Omogući ispis svih polaznika na tečaju nakon unosa
 koristiti metode equals i HashCode
 
 
-
 Što bi trebalo izmijeniti u rješenju ako dodamo novi zahtjev?
 Svi polaznici moraju biti cijelo vrijeme sortirani po prezimenu uzlazno
 Iskorisitit TreeSet() i sučelje Comparable
