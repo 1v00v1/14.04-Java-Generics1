@@ -10,7 +10,8 @@ public class EvidencijaPolaznika {
 
        /*
        * Napiši program za evidenciju polaznika na tečaju.
-       *  Program treba omogućiti unos polaznika i njihovih podataka te pružiti osnovne funkcije za upravljanje evidencijom.
+       *  Program treba omogućiti unos polaznika i njihovih podataka
+       * te pružiti osnovne funkcije za upravljanje evidencijom.
 Napravi klasu Polaznik koja ima sljedeće atribute:
 * Ime polaznika
 * Prezime polaznika
@@ -34,7 +35,7 @@ Za rješavanje koristite klasu ArrayList
                 case 1 -> p.add( UnosPolaznika(s));
                 case 2 -> IspisPolaznika(p);
                 case 3 -> PretrazivanjePoEmailu(s,p);
-                case 4 -> exit=true;
+                default -> exit=true;
 
             }
 
