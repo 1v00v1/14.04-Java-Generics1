@@ -70,6 +70,7 @@ Za rješavanje koristite klasu ArrayList
         String email = s.nextLine();
 
 
+
         return new Polaznik(ime,prezime,email);
     }
     public static void printMenu(){
