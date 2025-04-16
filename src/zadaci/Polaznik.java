@@ -25,11 +25,9 @@ public class Polaznik {
 
     @Override
     public String toString() {
-        return "Polaznik{" +
-                "ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "Ime: "+ ime +
+                "\nPrezime:  " + prezime+
+                "\nEmail: " + email ;
     }
 
 }

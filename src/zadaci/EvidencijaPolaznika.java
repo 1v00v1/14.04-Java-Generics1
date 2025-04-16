@@ -97,10 +97,11 @@ Iskorisitit TreeSet() i sučelje Comparable
         for (Polaznik pol : p) {
             do {
                 if (pol.getEmail().equals(email)) {
-                    System.out.println("Email se koristi");
+                    System.out.println("Email se koristi\nPonovite unos");
                     System.out.print("Unesite Email : ");
                     email = s.nextLine();
                 } else {
+                    System.out.println("polaznik uspješno unesen");
                     ex = true;
                 }
 
