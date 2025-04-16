@@ -58,7 +58,7 @@ Za rješavanje koristite klasu ArrayList
         System.out.println(email);
         for (Polaznik p : polaznici){
             System.out.println("pruka"+p.getEmail());
-            if(p.getEmail() == email){
+            if(p.getEmail().equals(email)){
                 System.out.println(p);
             }
         }
