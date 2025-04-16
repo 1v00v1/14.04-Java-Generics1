@@ -31,6 +31,19 @@ public class Polaznik implements Comparable<Polaznik> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Polaznik polaznik = (Polaznik) obj;
+        return email.equals(polaznik.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return email.hashCode();
+    }
+
+    @Override
     public int compareTo(Polaznik o) {
         return this.prezime.compareTo(o.prezime);
     }
