@@ -61,8 +61,9 @@ Iskorisitit TreeSet() i sučelje Comparable
     }
 
     private static void IspisPolaznika(HashSet<Polaznik> p) {
+
         System.out.println("Lista polaznika :");
-TreeSet<Polaznik > polaznici = new TreeSet<>(p);
+        TreeSet<Polaznik > polaznici = new TreeSet<>(p);
         for (Polaznik pol  : polaznici) {
             System.out.println(pol);
         }
